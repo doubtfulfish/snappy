@@ -44,10 +44,12 @@ export default function App() {
           inactiveTintColor: 'black',
         }}
         lazy='false'
+        initialRouteName='Home'
       >
+        <Tab.Screen name="Home" component={HomeScreen} /> 
         <Tab.Screen name="Calendar" component={CalendarScreen} />
         <Tab.Screen name="Projects" component={ProjectsScreen} />
-        <Tab.Screen name="Home" component={HomeScreen} />
+        
         {/* <Tab.Screen name="Channels" component={ChannelsScreen} />
         <Tab.Screen name="More" component={MoreScreen} /> */}
       </Tab.Navigator>
