@@ -13,7 +13,6 @@ import { Header } from 'react-native-elements';
 import { createStackNavigator } from '@react-navigation/stack';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import COVIDScreen from './covidscreen';
-// import CalendarScreen from './CalendarScreen';
 
 function HomeScreen({ navigation }) {
   return (
@@ -87,66 +86,6 @@ function HomeScreen({ navigation }) {
   );
 }
 
-// function COVIDScreen({ navigation }) {
-//   const [touched, setTouched] = useState(1);
-
-//   function returnOK() {
-//     if (touched === 1) {
-//       return <Text>one</Text>
-//     } else {
-//       return <Text>a</Text>
-//     }
-//   }
-
-//   return (
-//     <View>
-//       <ScrollView
-//         style={styles.scrollview}
-//         contentContainerStyle={styles.blockscontainer}
-//       >
-//         <TouchableOpacity
-//           onPress={() => setTouched(2)}
-//           style={[styles.buttonContainer, { backgroundColor: 'lightyellow' }]}
-//         >
-//           <ImageBackground
-//             source={require('../assets/tracetogether.png')}
-//             style={styles.bgimage}
-//           >
-//             <View
-//               style={[
-//                 styles.container,
-//                 { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
-//               ]}
-//             >
-//               <Text style={styles.text1}>
-//                 { returnOK }
-//               </Text>
-//             </View>
-//           </ImageBackground>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           onPress={() => navigation.navigate('COVID2')}
-//           style={styles.buttonContainer}
-//         >
-//           <ImageBackground
-//             source={require('../assets/tracetogether.png')}
-//             style={styles.bgimage}
-//           >
-//             <View
-//               style={[
-//                 styles.container,
-//                 { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
-//               ]}
-//             >
-//               <Text style={styles.text1}>Record of Contact Tracing</Text>
-//             </View>
-//           </ImageBackground>
-//         </TouchableOpacity>
-//       </ScrollView>
-//     </View>
-//   );
-// }
-
 function COVIDScreen2({ navigation }) {
   return (
     <View>
@@ -186,9 +125,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 250,
     padding: 10,
-    // resizeMode: 'contain',
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
 
   buttonContainer: {
@@ -210,7 +146,6 @@ const styles = StyleSheet.create({
   },
 
   text1: {
-    //css uses colon instead of equals sign
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
