@@ -24,10 +24,6 @@ export default function COVIDScreen({ navigation }) {
     setTimeout( () => setLoading(false), 3000);
   }
 
-  // useEffect(() => {
-  //   setLoading(true)
-  // })
-
   return (
     <View>
       <ScrollView
@@ -36,7 +32,7 @@ export default function COVIDScreen({ navigation }) {
       >
         <TouchableOpacity
           onPress={ () => returnOK() }
-          style={[styles.buttonContainer, { backgroundColor: 'lightyellow' }]}
+          style={styles.buttonContainer}
         >
           <ImageBackground
             source={require('../assets/tracetogether.png')}
