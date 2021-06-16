@@ -43,12 +43,13 @@ export default function App() {
           activeTintColor: 'blue',
           inactiveTintColor: 'black',
         }}
+        lazy='false'
       >
         <Tab.Screen name="Calendar" component={CalendarScreen} />
         <Tab.Screen name="Projects" component={ProjectsScreen} />
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Channels" component={ChannelsScreen} />
-        <Tab.Screen name="More" component={MoreScreen} />
+        {/* <Tab.Screen name="Channels" component={ChannelsScreen} />
+        <Tab.Screen name="More" component={MoreScreen} /> */}
       </Tab.Navigator>
     </NavigationContainer>
 )}

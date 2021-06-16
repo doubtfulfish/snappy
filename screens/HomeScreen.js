@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
@@ -7,10 +7,12 @@ import {
   ScrollView,
   ImageBackground,
   Image,
+  Alert,
 } from 'react-native';
 import { Header } from 'react-native-elements';
 import { createStackNavigator } from '@react-navigation/stack';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import COVIDScreen from './covidscreen';
 // import CalendarScreen from './CalendarScreen';
 
 function HomeScreen({ navigation }) {
@@ -21,7 +23,7 @@ function HomeScreen({ navigation }) {
         leftComponent={() => {
           return (
             <TouchableOpacity onPress={() => console.log('bruh')}>
-              <FontAwesome name="user" size="30px" color="white" />
+              <FontAwesome name="user" size={30} color="white" />
             </TouchableOpacity>
           );
         }}
@@ -32,7 +34,7 @@ function HomeScreen({ navigation }) {
         rightComponent={() => {
           return (
             <TouchableOpacity onPress={() => console.log('bruh')}>
-              <FontAwesome name="gear" size="30px" color="white" />
+              <FontAwesome name="gear" size={30} color="white" />
             </TouchableOpacity>
           );
         }}
@@ -85,50 +87,65 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function COVIDScreen({ navigation }) {
-  return (
-    <View>
-      <ScrollView
-        style={styles.scrollview}
-        contentContainerStyle={styles.blockscontainer}
-      >
-        <TouchableOpacity onPress={COVIDtracker} style={styles.buttonContainer}>
-          <ImageBackground
-            source={require('../assets/tracetogether.png')}
-            style={styles.bgimage}
-          >
-            <View
-              style={[
-                styles.container,
-                { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
-              ]}
-            >
-              <Text style={styles.text1}>Sync to trace together:</Text>
-            </View>
-          </ImageBackground>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('COVID2')}
-          style={styles.buttonContainer}
-        >
-          <ImageBackground
-            source={require('../assets/tracetogether.png')}
-            style={styles.bgimage}
-          >
-            <View
-              style={[
-                styles.container,
-                { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
-              ]}
-            >
-              <Text style={styles.text1}>Record of Contact Tracing</Text>
-            </View>
-          </ImageBackground>
-        </TouchableOpacity>
-      </ScrollView>
-    </View>
-  );
-}
+// function COVIDScreen({ navigation }) {
+//   const [touched, setTouched] = useState(1);
+
+//   function returnOK() {
+//     if (touched === 1) {
+//       return <Text>one</Text>
+//     } else {
+//       return <Text>a</Text>
+//     }
+//   }
+
+//   return (
+//     <View>
+//       <ScrollView
+//         style={styles.scrollview}
+//         contentContainerStyle={styles.blockscontainer}
+//       >
+//         <TouchableOpacity
+//           onPress={() => setTouched(2)}
+//           style={[styles.buttonContainer, { backgroundColor: 'lightyellow' }]}
+//         >
+//           <ImageBackground
+//             source={require('../assets/tracetogether.png')}
+//             style={styles.bgimage}
+//           >
+//             <View
+//               style={[
+//                 styles.container,
+//                 { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
+//               ]}
+//             >
+//               <Text style={styles.text1}>
+//                 { returnOK }
+//               </Text>
+//             </View>
+//           </ImageBackground>
+//         </TouchableOpacity>
+//         <TouchableOpacity
+//           onPress={() => navigation.navigate('COVID2')}
+//           style={styles.buttonContainer}
+//         >
+//           <ImageBackground
+//             source={require('../assets/tracetogether.png')}
+//             style={styles.bgimage}
+//           >
+//             <View
+//               style={[
+//                 styles.container,
+//                 { backgroundColor: 'rgba(0, 0, 0, 0.2)' },
+//               ]}
+//             >
+//               <Text style={styles.text1}>Record of Contact Tracing</Text>
+//             </View>
+//           </ImageBackground>
+//         </TouchableOpacity>
+//       </ScrollView>
+//     </View>
+//   );
+// }
 
 function COVIDScreen2({ navigation }) {
   return (
@@ -141,9 +158,11 @@ function COVIDScreen2({ navigation }) {
   );
 }
 
+
 function COVIDtracker() {
-  var cases = 'You have been into contact with 0 cases';
-  alert(cases);
+  const cases =
+    'No exposure alerts. Based on all your TraceTogether and SafeEntry records from the last 14 days.';
+  return Alert.alert('TraceTogether', cases);
 }
 
 const Stack = createStackNavigator();
@@ -165,7 +184,7 @@ export default function Homestack() {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 200,
+    height: 250,
     padding: 10,
     // resizeMode: 'contain',
     // justifyContent: 'center',
@@ -207,7 +226,7 @@ const styles = StyleSheet.create({
   scrollview: {
     paddingTop: '5%',
     marginBottom: 100,
-    paddingBottom: 100,
+    paddingBottom: 150,
   },
 
   header: {

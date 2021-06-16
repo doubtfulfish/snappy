@@ -11,10 +11,10 @@
 // }
 
 import React, { Component, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity , Button} from 'react-native';
 import { Calendar , Agenda , CalendarList } from 'react-native-calendars';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
 export default class App extends Component {
   constructor(props) {
@@ -43,6 +43,8 @@ export default class App extends Component {
     const maxDate = new Date(2020, 6, 3);
     const StartDate = selectedStartDate ? selectedStartDate.toString() : '';
     const EndDate = selectedEndDate ? selectedEndDate.toString() : '';
+
+
 
 
   
@@ -97,10 +99,13 @@ export default class App extends Component {
           <View style={{ flex: 1, justifyContent: 'flex-end' }}>
           </View>
         </View>
+
       </View>
     );
   }
 }
+
+
 
 
 
@@ -119,6 +124,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFC107',
     borderRadius: 20,
   },
+
+
+
 }); 
 
 
