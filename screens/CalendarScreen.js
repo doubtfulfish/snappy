@@ -12,7 +12,7 @@
 
 import React, { Component, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { Calendar } from 'react-native-calendars';
+import { Calendar , Agenda , CalendarList } from 'react-native-calendars';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -41,9 +41,11 @@ export default class App extends Component {
 
     const minDate = new Date();
     const maxDate = new Date(2020, 6, 3);
-    const startDate = selectedStartDate ? selectedStartDate.toString() : '';
-    const endDate = selectedEndDate ? selectedEndDate.toString() : '';
+    const StartDate = selectedStartDate ? selectedStartDate.toString() : '';
+    const EndDate = selectedEndDate ? selectedEndDate.toString() : '';
 
+
+  
     return (
       <View style={styles.container}>
         <Calendar
@@ -51,6 +53,16 @@ export default class App extends Component {
           minDate={new Date(2020, 2, 28)}
           startDate={new Date(2020, 2, 27)}
           endDate={new Date(2020, 3, 2)}
+          markingType={'period'}
+          markedDates={{
+            '2021-06-15': {marked: true, dotColor: '#50cebb'},
+            '2021-06-16': {marked: true, dotColor: '#50cebb'},
+            '2021-06-21': {startingDay: true, color: '#50cebb', textColor: 'white'},
+            '2021-06-22': {color: '#70d7c7', textColor: 'white'},
+            '2021-06-23': {color: '#70d7c7', textColor: 'white', marked: true, dotColor: 'white'},
+            '2021-06-24': {color: '#70d7c7', textColor: 'white'},
+            '2021-06-25': {endingDay: true, color: '#50cebb', textColor: 'white'},}}
+          
           theme={{
             activeDayColor: {},
             monthTitleTextStyle: {
@@ -77,52 +89,36 @@ export default class App extends Component {
             activeDayTextStyle: { color: 'black' },
             nonTouchableLastMonthDayTextStyle: {},
           }}
+
         />
-        <View>
-          <View style={{ padding: 10 }}>
-            <TextInput
-              style={{ height: 40 }}
-              placeholder="Type here to Start Date! Enter as DD/MM/YY"
-              onChangeText={selectedStartDate}
-              defaultValue={selectedStartDate}
-            />
-          </View>
-          <View style={{ padding: 10 }}>
-            <TextInput
-              style={{ height: 40 }}
-              placeholder="Type here for End Date! Enter as DD/MM/YY"
-              onChangeText={selectedEndDate}
-              defaultValue={selectedEndDate}
-            />
-          </View>
-          <Text>SELECTED START DATE:{startDate}</Text>
-          <Text>SELECTED END DATE:{endDate}</Text>
-        </View>
+       
+        
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-            <TouchableOpacity
-              style={{
-                width: '100%',
-                height: 40,
-                backgroundColor: 'red',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <Text style={{ color: 'white', fontSize: 16 }}>
-                Bottom Button
-              </Text>
-            </TouchableOpacity>
           </View>
         </View>
       </View>
     );
   }
 }
+
+
+
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fbfcac',
     marginTop: 100,
   },
-});
+  buttonContainer: {
+    marginBottom: 20,
+    width: 40 * 2,
+    height: 40,
+    backgroundColor: '#FFC107',
+    borderRadius: 20,
+  },
+}); 
+
+
